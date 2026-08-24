@@ -2,6 +2,7 @@
 
 ![CI](https://github.com/coeffic-raphael/raphael_coeffic_helfy_task/actions/workflows/ci.yml/badge.svg)
 
+**▶ [Video Demo](https://youtu.be/cHh41MSDY4k)** — the application running,
 
 A full-stack task management application built with React, Express.js, and Node.js.
 
