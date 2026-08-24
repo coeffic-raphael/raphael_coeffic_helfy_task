@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Test backend API
+        run: |
+          npm start --prefix backend &
+          server_pid=$!
+          trap 'kill $server_pid' EXIT
+          sleep 2
+          curl --fail --silent http://127.0.0.1:4000/api/tasks
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Run frontend tests
+        working-directory: frontend
+        env:
+          CI: true
+        run: npm test -- --watchAll=false --passWithNoTests
+
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
