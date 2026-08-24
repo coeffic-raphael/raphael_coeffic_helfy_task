@@ -1,6 +1,7 @@
 # Task Manager App
 
-![CI](https://github.com/coeffic-raphael/raphael_coeffic_helfy_task.git)
+![CI](https://github.com/coeffic-raphael/raphael_coeffic_helfy_task/actions/workflows/ci.yml/badge.svg)
+
 
 A full-stack task management application built with React, Express.js, and Node.js.
 
