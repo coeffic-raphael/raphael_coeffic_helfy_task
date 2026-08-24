@@ -1,5 +1,7 @@
 # Task Manager App
 
+![CI](https://github.com/coeffic-raphael/raphael_coeffic_helfy_task.git)
+
 A full-stack task management application built with React, Express.js, and Node.js.
 
 Users can create, edit, delete, filter, and mark tasks as completed or pending. Tasks are displayed in an animated endless carousel.
